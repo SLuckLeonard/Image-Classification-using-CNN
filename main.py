@@ -1,7 +1,10 @@
 from data.download_data import download_cifar10
 from data.preprocess_data import preprocess_data
 from visualization.visualize_data import visualize_samples, print_basic_stats
-from augment.augment_data import augment_data
+from augment.augment_data import get_data_augmentation
+from model.design_cnn import build_cnn_model
+from model.compile_model import compile_cnn_model
+import tensorflow as tf
 
 if __name__ == "__main__":
     # Step 1: Download the data
@@ -14,7 +17,21 @@ if __name__ == "__main__":
     visualize_samples(x_train, y_train)
     print_basic_stats(x_train, x_test)
 
-    # Step 4: Augment the data (if needed)
-    datagen = augment_data(x_train)
+    # Step 4: Augment the data
+    datagen = get_data_augmentation()
 
-    print("Data ready for model training and augmentation.")
+    # Step 5: Build and compile the model
+    model = build_cnn_model()
+    model = compile_cnn_model(model)
+
+    # Step 6: Train the model
+    model.fit(datagen.flow(x_train, y_train, batch_size=64),
+              epochs=10,
+              validation_data=(x_val, y_val),
+              verbose=1)
+
+    # Evaluate the model
+    test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
+    print(f"Test accuracy: {test_acc:.4f}")
+
+    print("Model training complete.")
