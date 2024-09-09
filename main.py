@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     # Step 6: Train the model
     model.fit(datagen.flow(x_train, y_train, batch_size=64),
-              epochs=10,
+              epochs=30,
               validation_data=(x_val, y_val),
               verbose=1)
 
