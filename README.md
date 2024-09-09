@@ -22,16 +22,16 @@ Make sure you have the following dependencies installed:
 4. Matplotlib
 You can install all dependencies using the following command:
 
-'''bash
+```bash
 pip install -r requirements.txt
-'''
+```
 ##Running the Project
 - Clone the Repository:
 
-''' bash
+```bash
 git clone https://github.com/your-username/Image-Classification-using-CNN.git
 cd Image-Classification-using-CNN
-'''
+```
 - Download CIFAR-10 Dataset:
 
 The CIFAR-10 dataset will automatically be downloaded when running the script.
@@ -40,9 +40,9 @@ The CIFAR-10 dataset will automatically be downloaded when running the script.
 
 To train the model and save it, simply run:
 
-'''bash
+```bash
 python main.py
-'''
+```
 This will:
 
 Download the CIFAR-10 dataset.
@@ -59,7 +59,7 @@ The saved model can be found in the saved_models folder as best_cnn_model.keras.
 ## Project Structure
 The project has a clean, modular structure for better code organization and scalability:
 
-'''bash
+```bash
 Image-Classification-using-CNN/
 │
 ├── augment/                     # Data augmentation functions
@@ -85,7 +85,7 @@ Image-Classification-using-CNN/
 ├── main.py                      # Main script for training and saving the model
 ├── README.md                    # This file
 └── requirements.txt             # List of dependencies
-'''
+```
 ## Next Steps
 Add a more complex CNN architecture to improve performance.
 Implement advanced techniques like learning rate scheduling or early stopping.
