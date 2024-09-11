@@ -70,6 +70,9 @@ Image-Classification-using-CNN/
 │   ├── preprocess_data.py
 │   └── __init__.py
 │
+├── eval/
+│   └── evaluate_model.py
+│
 ├── model/                       # Model architecture and compilation
 │   ├── design_cnn.py
 │   ├── compile_model.py
